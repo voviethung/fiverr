@@ -1,73 +1,50 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-// import { getAllProductAction } from "./actions/service/productApi";
 import Link from "next/link";
-
-
-// import React, { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
 import ReactCarousel from "./components/ReactCarousel/ReactCarousel.jsx";
 import SlickCarousel from "./components/SlickCarousel/SlickCarousel";
 import Slider from "./components/Slider/Slider";
 import VideoModal from "./components/Video/VideoModal";
 import SearchCarousel from "./components/SearchCarousel/SearchCasousel";
-// import { AppDispatch } from "../../redux/configStore";
 import { timeout } from "./util/setting";
 
-// const dispatch: AppDispatch = useDispatch();
-// const [param, setParam] = useState("");
-// const navigate = useNavigate();
-// const handelSubmit = async (e) => {
-//   e.preventDefault();
-//   await timeout(1000);
-//   navigate(`/result/${param}`);
-// };
-// const handelChange = (e) => {
-//   setParam(e.target.value);
-// };
+export const metadata = {
+  title: "Freelance Services - Home",
+  description: "Find the perfect freelance services for your business. Explore top professional services in design, development, marketing, and more.",
+  openGraph: {
+    title: "Freelance Services Platform - Home",
+    description: "Find the perfect freelance services for your business. Explore top professional services in design, development, marketing, and more.",
+    url: "https://demo-fiverr.vercel.app",
+    images: [
+      {
+        url: "https://fiverrnew.cybersoft.edu.vn/images/lcv1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Freelance Services Banner",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Freelance Services Platform - Home",
+    description: "Find the perfect freelance services for your business. Explore top professional services in design, development, marketing, and more.",
+    images: ["https://fiverrnew.cybersoft.edu.vn/images/lcv1.jpg"],
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Freelance Services Platform",
+    url: "https://demo-fiverr.vercel.app",
+    description: "Find the perfect freelance services for your business. Explore top professional services in design, development, marketing, and more.",
+    image: "https://fiverrnew.cybersoft.edu.vn/images/lcv1.jpg",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://demo-fiverr.vercel.app/result?keyword={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  },
+};
 
-
-// export const metadata = {
-//   title: "Shoes App - Home",
-//   description: "Explore our wide range of shoes with the best prices and quality.",
-//   openGraph: {
-//     title: "Shoes App - Home",
-//     description: "Explore our wide range of shoes with the best prices and quality.",
-//     url: "https://shoesshopbc70.vercel.app",
-//     images: [
-//       {
-//         url: "https://apistore.cybersoft.edu.vn/images/van-old-school.png",
-//         width: 800,
-//         height: 600,
-//         alt: "Shoes App",
-//       },
-//     ],
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Shoes App - Home",
-//     description: "Explore our wide range of shoes with the best prices and quality.",
-//     images: ["https://apistore.cybersoft.edu.vn/images/van-old-school.png"],
-//   },
-//   jsonLd:{
-//     "@context": "https://schema.org",
-//     "@type": "Store",
-//     "name": "Shoes App",
-//     "url": "https://yourwebsite.com",
-//     "description": "Explore our wide range of shoes with the best prices and quality.",
-//     "image": "https://yourwebsite.com/images/og-image.jpg",
-//     "potentialAction": {
-//       "@type": "SearchAction",
-//       "target": "https://yourwebsite.com/search?q={search_term_string}",
-//       "query-input": "required name=search_term_string"
-//     }
-//   }
-// }
-
-
-
-//server component 
 const Home = async () => {
   return (
     <div>
@@ -83,40 +60,6 @@ const Home = async () => {
                 Find the perfect <i> freelance </i> services for your business
               </h1>
               <SearchCarousel />
-              {/* <form className="d-flex" role="search" onSubmit={(e) => {
-                e.preventDefault();
-                router.push(`/result?keyword=${keyword}`)
-              }}>
-                <input
-                  value={keyword}
-                  onChange={(e) => {
-                    setKeyword(e.target.value);
-                  }}
-                  className="form-control"
-                  type="search"
-                  name="searchInputCarousel"
-                  placeholder='Try "building mobile app"'
-                  aria-label="Search"
-                />
-                <button className="btn btn-success" type="submit">
-                  Search
-                </button>
-              </form> */}
-              {/* <form className="d-flex" role="search" onSubmit={(e) => {
-                e.preventDefault();
-                router.push(`/result?keyword=${keyword}`)
-              }}>
-                <input
-                  value={keyword}
-                  onChange={(e) => {
-                    setKeyword(e.target.value);
-                  }}
-                  className="form-control me-sm-2" type="text" placeholder="What service are you looking for today?" />
-                <button type="submit" className="btn btn-success my-2 my-sm-0">
-                  Search
-                </button>
-              </form> */}
-
               <div className="d-flex popular">
                 <span>Popular: </span>
                 <div className="btn">Website Design</div>
@@ -129,7 +72,6 @@ const Home = async () => {
           </div>
         </div>
       </section>
-
       <section className="trusted-by container">
         <div className="trusted-by-wrapper d-flex justify-content-center align-items-center">
           <span className="trusted-by-text">Trusted by:</span>
@@ -160,7 +102,6 @@ const Home = async () => {
           </ul>
         </div>
       </section>
-
       <section className="subcategory-carousel">
         <div className="container">
           <h2>Popular professional services</h2>
@@ -169,7 +110,6 @@ const Home = async () => {
           </div>
         </div>
       </section>
-
       <section className="selling-proposition-wrapper">
         <div className="selling-proposition container">
           <div className="row align-items-center justify-content-between">
@@ -296,11 +236,9 @@ const Home = async () => {
           </div>
         </div>
       </section>
-
       <section className="testimonial">
         <SlickCarousel />
       </section>
-
       <section className="main-categories container">
         <h2 className="margin">Explore the marketplace</h2>
         <ul className="row justify-content-center">
@@ -406,12 +344,6 @@ const Home = async () => {
         </ul>
       </section>
     </div>
-
-
-
-
-
-
   )
 }
 export default Home

@@ -2,12 +2,45 @@ import { getCongViecTheoChiTietLoaiAction } from '../../../actions/service/produ
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-// import Navbar from '@/app/components/Navbar';
-// import CategoryMenu from '@/app/components/CategoryMenu';
-// import ScrollButton from '@/app/hooks/ScrollButton';
-// import InterestTags from '@/app/components/InterestTags/InterestTags';
 import { ServiceCard } from '../../../components/ServiceCard/ServiceCard';
 
+export const metadata = {
+    title: "Browse Freelance Categories - Find Your Perfect Service",
+    description: "Explore a wide range of freelance services in various categories. Find top professionals to help you with programming, design, writing, and more.",
+    openGraph: {
+      title: "Freelance Categories - Explore Services",
+      description: "Discover a variety of freelance services tailored to your needs. Browse through top categories and find the perfect match for your project.",
+      url: "https://demo-fiverr.vercel.app/categories",
+      images: [
+        {
+          url: "https://fiverrnew.cybersoft.edu.vn/images/lcv1.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Freelance Categories Banner",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Freelance Categories - Explore Services",
+      description: "Find the best freelance services for your business. Browse top categories like programming, writing, and design.",
+      images: ["https://fiverrnew.cybersoft.edu.vn/images/lcv1.jpg"],
+    },
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Freelance Categories",
+      url: "https://demo-fiverr.vercel.app/categories",
+      description: "Explore a wide range of freelance services in various categories. Find top professionals to help you with programming, design, writing, and more.",
+      image: "https://fiverrnew.cybersoft.edu.vn/images/lcv1.jpg",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://demo-fiverr.vercel.app/categories/{id}",
+        "query-input": "required id",
+      },
+    },
+  };
+  
 
 const Categories = async ({ params }) => { 
     const id = params.id; // Lấy giá trị 'id' từ đường dẫn động
@@ -26,36 +59,6 @@ const Categories = async ({ params }) => {
 
     return (
         <>
-
-            {/* Helmet thêm thông tin SEO */}
-            {/* <Helmet>
-        <title>Category: {arrCategory[0]?.tenLoaiCongViec || "Loading..."}</title>
-        <meta
-          name="description"
-          content={`Khám phá ${arrCategory.length} dịch vụ trong danh mục ${
-            arrCategory[0]?.tenLoaiCongViec || "Loading..."
-          }. Chọn ngay dịch vụ phù hợp với bạn!`}
-        />
-        <meta
-          name="keywords"
-          content={`services, ${arrCategory
-            .map((service) => service.tenChiTietLoai)
-            .join(", ")}`}
-        />
-        <meta
-          property="og:title"
-          content={`Category: ${arrCategory[0]?.tenLoaiCongViec || "Loading..."}`}
-        />
-        <meta
-          property="og:description"
-          content={`Khám phá ${arrCategory.length} dịch vụ trong danh mục ${
-            arrCategory[0]?.tenLoaiCongViec || "Loading..."
-          }. Chọn ngay dịch vụ phù hợp với bạn!`}
-        />
-        <meta property="og:url" content={window.location.href} />
-        <meta property="og:type" content="website" />
-      </Helmet> */}
-
             <section className="categories">
                 <div className="container">
                     <div className="categories-link">

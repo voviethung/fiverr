@@ -12,17 +12,9 @@ import CategoriesMenu from "./components/CategoriesMenu/CategoriesMenu";
 import HeaderTsWithProvider from "./components/HeaderTsWithProvider/HeaderTsWithProvider";
 import CategoriesMenuTsWithProvider from "./components/CategoriesMenuTsWithProvider/CategoriesMenuTsWithProvider";
 import HeaderHomeTemplate from "./templates/HeaderHomeTemplate"
-// import CategoriesMenu from "./components/CategoriesMenu/CategoriesMenu";
-// import HeaderHomeTemplate from "./templates/HeaderHomeTemplate";
-// import './styles/scss/main.scss';
-// import HeaderHome from "./components/HeaderHome";
-// import Footer from "./components/Footer";
-
 //Tạo ra đối tượng font từ thư viện google font được tích hợp sẵn trong nextjs
 const roboto = Roboto({ subsets: ['latin'], weight: ['300', '400', '700'] });
 // const inter = Inter({subsets:['latin'],weight:['300','400','700']});
-
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -51,7 +43,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
         {/* Canonical link */}
-        <link rel="canonical" href="https://shoesshopbc70.vercel.app" />
+        <link rel="canonical" href="https://demo-fiverr.vercel.app" />
         {/* Font Awesome */}
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -59,10 +51,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${roboto.className}`}>
-        {/* <HeaderTsWithProvider/>
-        <CategoriesMenuTsWithProvider/> */}
-        {/* <Header/> */}
-        {/* <CategoriesMenu/> */}
         <HeaderHomeTemplate/>
         {children}
         <Footer />
