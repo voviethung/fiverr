@@ -1,36 +1,76 @@
 import { getChiTietLoaiCongViecAction } from "../../../actions/service/productApi";
 import React from "react";
 import Link from "next/link";
-// import { Helmet } from "react-helmet"; // Import Helmet
-// import { useDispatch, useSelector } from "react-redux";
-// import { NavLink, useParams } from "react-router-dom";
-// import { AppDispatch, RootState } from "../../redux/configStore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-// import { DsChiTietLoai, DsNhomChiTietLoai } from "../../redux/models/JobModel";
-// import { getJobTitleDetailApi } from "../../redux/reducers/jobReducer";
 
-// type Props = {};
+export const metadata = {
+    title: "Explore Job Categories - Professional Services",
+    description:
+      "Discover detailed information about job categories including design, development, and more. Find the best services tailored to your needs.",
+    openGraph: {
+      title: "Explore Job Categories - Professional Services",
+      description:
+        "Explore popular job categories and services like logo design, interior design, and more. Start your journey with top-rated professionals.",
+      url: "https://demo-fiverr.vercel.app/title", // Thay thế bằng URL thực tế
+      images: [
+        {
+          url: "https://fiverrnew.cybersoft.edu.vn/images/lcv2.jpg", // URL hình ảnh thực tế
+          width: 1200,
+          height: 630,
+          alt: "Job Categories Banner",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Explore Job Categories - Professional Services",
+      description:
+        "Discover job categories and related services, including design, development, and custom solutions for your business needs.",
+      images: ["https://fiverrnew.cybersoft.edu.vn/images/lcv2.jpg"], // URL hình ảnh thực tế
+    },
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Job Categories",
+      description:
+        "Explore a variety of job categories including design, development, and professional services to find the perfect match for your project.",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Logo Design",
+          url: "https://demo-fiverr.vercel.app/categories/2", // URL thực tế cho mục
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
+          name: "Website Design",
+          url: "https://demo-fiverr.vercel.app/categories/5", // URL thực tế cho mục
+        },
+        {
+          "@type": "ListItem",
+          position: 6,
+          name: "App Design",
+          url: "https://demo-fiverr.vercel.app/categories/6", // URL thực tế cho mục
+        },
+        {
+          "@type": "ListItem",
+          position: 8,
+          name: "Social Media Marketing",
+          url: "https://demo-fiverr.vercel.app/categories/8", // URL thực tế cho mục
+        },
+      ],
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://demo-fiverr.vercel.app/result?keyword={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    },
+  };
+  
 library.add(fas);
-
-// export default function JobTitle({}) {
-//   const params: any = useParams();
-//   const dispatch: AppDispatch = useDispatch();
-//   const { jobTitleDetail } = useSelector(
-//     (state: RootState) => state.jobReducer
-//   );
-
-//   let { id } = params;
-//   // console.log("-", jobTitleDetail);
-
-//   useEffect(() => {
-//     dispatch(getJobTitleDetailApi(id));
-//     // console.log("--", jobTitleDetail);
-//   }, [id]);
-
 const JobTitle = async ({ params }) => {
     const id = params.id; // Lấy giá trị 'id' từ đường dẫn động
     const jobTitleDetail = await getChiTietLoaiCongViecAction(id);
@@ -66,55 +106,8 @@ const renderExploreContent = () => {
     ));
 };
 
-
-    // const renderExploreContent = () => {
-    //     { jobTitleDetail.map(group) => (
-    //         <div key={group.index}>
-    //             {group.dsNhomChiTietLoai.map(item, index) => {
-    //             return (
-    //             <div className="item" key={item.index}>
-    //                 <img src={item.hinhAnh} alt="..." />
-    //                 <h1>{item.tenNhom}</h1>
-    //                 {item.dsChiTietLoai.map((chiTiet, index) => {
-    //                     return (
-    //                         <p key={chiTiet.index}>
-    //                             <Link to={`/categories/${chiTiet.id}`}>
-    //                                 {chiTiet.tenChiTiet}
-    //                             </Link>
-    //                         </p>
-    //                     );
-    //                 })}
-    //             </div>
-    //             );
-    //         }
-    //     }
-    //         </div>
-    //     )}}
-
-
 return (
     <>
-
-        {/* Helmet SEO Tags */}
-        {/* <Helmet>
-        <title>{jobTitleDetail.tenLoaiCongViec || "Job Title"}</title>
-        <meta
-          name="description"
-          content={`Explore various services under ${jobTitleDetail.tenLoaiCongViec || "this category"}. Find the best freelancers for your needs.`}
-        />
-        <meta
-          name="keywords"
-          content={`freelance, services, ${jobTitleDetail.tenLoaiCongViec}, popular jobs`}
-        />
-        <meta property="og:title" content={jobTitleDetail.tenLoaiCongViec || "Job Title"} />
-        <meta
-          property="og:description"
-          content={`Explore the top services under ${jobTitleDetail.tenLoaiCongViec || "this category"} on our platform.`}
-        />
-        <meta property="og:image" content={jobTitleDetail.hinhAnh || "/default-image.jpg"} />
-        <meta property="og:url" content={window.location.href} />
-        <meta property="og:type" content="website" />
-      </Helmet> */}
       {jobTitleDetail.map((group, index) => (
         <div key={group.index}>
         <section className="banner-job-title">

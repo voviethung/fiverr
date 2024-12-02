@@ -4,8 +4,47 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ServiceCard } from '../../components/ServiceCard/ServiceCard';
-// import { Result } from 'antd';
-// import { Helmet } from "react-helmet"; // Import Helmet
+
+export const metadata = {
+    title: "Search Results - Find Freelance Services for Your Needs",
+    description:
+      "Explore top freelance services matching your search. Find professionals in programming, design, writing, and more to help your business grow.",
+    openGraph: {
+      title: "Search Results - Explore Freelance Services",
+      description:
+        "Discover freelance services tailored to your search. Get access to a wide range of experts and start your project today.",
+      url: "https://demo-fiverr.vercel.app/result",
+      images: [
+        {
+          url: "https://fiverrnew.cybersoft.edu.vn/images/cv4.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Search Results for Freelance Services",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Search Results - Explore Freelance Services",
+      description:
+        "Find the best freelance services matching your search. Explore top categories and hire professionals now.",
+      images: ["https://fiverrnew.cybersoft.edu.vn/images/cv4.jpg"],
+    },
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "SearchResultsPage",
+      name: "Freelance Service Search Results",
+      description:
+        "Browse results for your freelance service search. Explore options for programming, design, writing, and more.",
+      image: "https://fiverrnew.cybersoft.edu.vn/images/cv4.jpg",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://demo-fiverr.vercel.app/result?keyword={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    },
+  };
+  
 const Result = async (props) => {
     const keyword = props.searchParams.keyword || '';
     const arrResult = await getCongViecByKeywordAction(keyword);
@@ -19,35 +58,8 @@ const Result = async (props) => {
             );
         });
     };
-
     return (
         <>
-            {/* Helmet for SEO
-            <Helmet>
-                <title>Results for "{params.name}" - Find Services | Fiverr Clone</title>
-                <meta
-                    name="description"
-                    content={`Explore results for "${params.name}". Find the best freelancers and services for your needs. We provide a wide range of categories to help you succeed.`}
-                />
-                <meta
-                    name="keywords"
-                    content={`freelance, services, search results, ${params.name}, hire experts`}
-                />
-                <meta
-                    property="og:title"
-                    content={`Results for "${params.name}"`}
-                />
-                <meta
-                    property="og:description"
-                    content={`Find the best services related to "${params.name}". Hire experts in a variety of fields to get your work done.`}
-                />
-                <meta
-                    property="og:image"
-                    content="https://via.placeholder.com/600x400" // Replace with your relevant image
-                />
-                <meta property="og:url" content={window.location.href} />
-                <meta property="og:type" content="website" />
-            </Helmet> */}
             <section className="result">
                 <div className="container">
                     <div className="result-title">
