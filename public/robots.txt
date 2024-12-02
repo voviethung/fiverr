@@ -7,7 +7,7 @@ User-agent: *
 Disallow: /secret-page
 
 # Host
-Host: https://shoesshopbc70.vercel.app
+Host: https://demo-fiverr.vercel.app
 
 # Sitemaps
-Sitemap: https://shoesshopbc70.vercel.app/sitemap.xml
+Sitemap: https://demo-fiverr.vercel.app/sitemap.xml
