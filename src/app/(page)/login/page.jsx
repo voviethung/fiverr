@@ -65,7 +65,7 @@ function Login() {
         <div className="signin-content">
           <div className="signin-image">
             <figure>
-              <img src="./img/signin.jpg" alt="sing up image" className="w-100" />
+              <img src="./img/signin.png" alt="sing up image" className="w-100" />
             </figure>
           </div>
           <div className="signin-form">
